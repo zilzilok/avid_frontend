@@ -1,4 +1,4 @@
-import 'package:avid_frontend/screens/welcome/components/welcome_body.dart';
+import 'components/welcome_body.dart';
 import 'package:flutter/material.dart';
 
 class WelcomeScreen extends StatelessWidget {

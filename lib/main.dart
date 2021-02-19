@@ -1,7 +1,7 @@
 import 'package:avid_frontend/res/constants.dart';
-import 'package:avid_frontend/screens/reg/reg_screen.dart';
+import 'package:avid_frontend/screens/auth/reg/reg_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:avid_frontend/screens/login/login_screen.dart';
+import 'package:avid_frontend/screens/auth/login/login_screen.dart';
 import 'package:avid_frontend/screens/welcome/welcome_screen.dart';
 
 void main() {
