@@ -2,6 +2,7 @@ import 'package:avid_frontend/components/rounded_button.dart';
 import 'package:avid_frontend/screens/auth/components/already_have_an_account_check.dart';
 import 'package:avid_frontend/screens/auth/components/rounded_input_field.dart';
 import 'package:avid_frontend/screens/auth/components/rounded_password_field.dart';
+import 'package:avid_frontend/screens/auth/login/components/login_form_page.dart';
 import 'package:flutter/material.dart';
 
 class LoginBody extends StatelessWidget {
@@ -18,15 +19,7 @@ class LoginBody extends StatelessWidget {
             style: TextStyle(fontWeight: FontWeight.bold),
           ),
           SizedBox(height: size.height * 0.05),
-          RoundedInputField(
-            hintText: "Введите логин/email",
-            onChanged: (value) {},
-          ),
-          RoundedPasswordField(hintText: "Введите пароль",),
-          RoundedButton(
-            text: "Войти",
-            onPressed: () {},
-          ),
+          LoginFormPage(),
           SizedBox(height: size.height * 0.03),
           AlreadyHaveAnAccountCheck(
             onPressed: () {
