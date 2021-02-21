@@ -1,6 +1,5 @@
+import 'package:avid_frontend/screens/auth/login/components/login_body.dart';
 import 'package:flutter/material.dart';
-
-import 'components/login_body.dart';
 
 class LoginScreen extends StatelessWidget {
   @override
