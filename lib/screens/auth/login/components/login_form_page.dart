@@ -53,7 +53,9 @@ class _LoginFormPageState extends State<LoginFormPage> {
             RoundedButton(
               text: "Войти",
               onPressed: () {
-                _formkey.currentState.validate();
+                if(_formkey.currentState.validate()) {
+                  
+                }
               },
             ),
           ],
