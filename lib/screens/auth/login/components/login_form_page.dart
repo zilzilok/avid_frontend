@@ -1,4 +1,8 @@
+
+import 'package:avid_frontend/components/app_utils.dart';
 import 'package:avid_frontend/components/rounded_button.dart';
+import 'package:avid_frontend/screens/auth/api/auth_api.dart';
+import 'package:avid_frontend/screens/auth/components/auth_utils.dart';
 import 'package:avid_frontend/screens/auth/components/rounded_input_field.dart';
 import 'package:avid_frontend/screens/auth/components/rounded_password_field.dart';
 import 'package:avid_frontend/screens/auth/components/validator.dart';
@@ -12,7 +16,7 @@ class LoginFormPage extends StatefulWidget {
 class _LoginFormPageState extends State<LoginFormPage> {
   TextEditingController _passwordController = TextEditingController();
   TextEditingController _loginController = TextEditingController();
-  final GlobalKey<FormState> _formkey = GlobalKey<FormState>();
+  final _formkey = GlobalKey<FormState>();
 
   @override
   void dispose() {
@@ -31,17 +35,29 @@ class _LoginFormPageState extends State<LoginFormPage> {
             RoundedInputField(
               hintText: "Введите логин",
               controller: _loginController,
-              validator: Validator.login,
+              validator: Validator.login(),
             ),
             RoundedPasswordField(
               hintText: "Введите пароль",
               controller: _passwordController,
-              validator: Validator.passwordNotEmpty,
+              validator: Validator.passwordNotEmpty(),
             ),
             RoundedButton(
               text: "Войти",
-              onPressed: () {
-                if (_formkey.currentState.validate()) {}
+              onPressed: () async {
+                if (_formkey.currentState.validate()) {
+                  var username = _loginController.text;
+                  var password = _passwordController.text;
+                  var jwt = await AuthApi.attemptAuth(username, password);
+                  if (jwt != null) {
+                    AuthUtils.saveJwt(jwt);
+                    Navigator.popUntil(context, (route) => route.isFirst);
+                    Navigator.popAndPushNamed(context, '/profile');
+                  } else {
+                    AppUtils.displayDialog(context, "Ошибка авторизации!",
+                        "Аккаунта с такими данными не было найдено.");
+                  }
+                }
               },
             ),
           ],

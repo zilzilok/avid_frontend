@@ -1,5 +1,5 @@
 class Validator {
-  static Function login() {
+  static login() {
     return (String login) {
       RegExp regex =
           RegExp(r'^[a-zA-Z0-9]([._-](?![._-])|[a-zA-Z0-9]){3,18}[a-zA-Z0-9]$');
@@ -10,10 +10,25 @@ class Validator {
     };
   }
 
-  static Function passwordNotEmpty() {
+  static passwordNotEmpty() {
     return (String password) {
       if (password.isEmpty) {
         return "Пароль не может быть пустым";
+      }
+      return null;
+    };
+  }
+
+  static email() {
+    return (String email) {
+      String regexStr = "^(?=.{1,64}@)(?:(\"[^\"\\\\]*(?:\\\\.[^\"\\\\]*)*\"@)|((?:[0-9a-z](?:\\.(?!\\.)|[-!#\\\$%&'\\*\\+/=\\?\\^`\\{\\}\\|~\\w])*)?[0-9a-z]@))(?=.{1,255}\$)(?:(\\[(?:\\d{1,3}\\.){3}\\d{1,3}\\])|((?:(?=.{1,63}\\.)[0-9a-z][-\\w]*[0-9a-z]*\\.)+[a-z0-9][\\-a-z0-9]{0,22}[a-z0-9])|((?=.{1,63}\$)[0-9a-z][-\\w]*))\$";
+      RegExp regex = RegExp(
+        regexStr,
+        caseSensitive: false,
+        multiLine: true,
+      );
+      if (!regex.hasMatch(email)) {
+        return "Введен недопустимый email";
       }
       return null;
     };

@@ -25,11 +25,15 @@ dependencies:
     sdk: flutter
 
 
+  http: ^0.12.2
+  # Store JWT
+  flutter_secure_storage: ^3.3.1+1
+  # Work with svg
+  flutter_svg: ^0.19.1
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.0
-  flutter_svg: ^0.19.1
-  http: ^0.12.2
+  # Splash screen
   flutter_native_splash: ^0.3.0
 
 dev_dependencies:

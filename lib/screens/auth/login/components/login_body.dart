@@ -20,8 +20,7 @@ class LoginBody extends StatelessWidget {
           SizedBox(height: size.height * 0.03),
           AlreadyHaveAnAccountCheck(
             onPressed: () {
-              Navigator.pop(context);
-              Navigator.pushNamed(context, "/register");
+              Navigator.popAndPushNamed(context, "/register");
             },
           ),
         ],
