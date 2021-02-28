@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:http/http.dart' as http;
 
@@ -16,7 +17,7 @@ class AuthApi {
         "password": password,
       }),
     );
-    if (res.statusCode == 200) {
+    if (res.statusCode == HttpStatus.ok) {
       return res.body;
     }
     return null;
@@ -47,6 +48,6 @@ class AuthApi {
         "authorization": "Bearer $jwt",
       },
     );
-    return res.statusCode == 200;
+    return res.statusCode == HttpStatus.ok;
   }
 }

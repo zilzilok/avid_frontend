@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:avid_frontend/components/app_utils.dart';
 import 'package:avid_frontend/components/rounded_button.dart';
 import 'package:avid_frontend/screens/auth/api/auth_api.dart';
@@ -72,13 +74,15 @@ class _RegFormPage extends State<RegFormPage> {
                   var matchingPassword = _mPasswordController.text;
                   var statusCode = await AuthApi.attemptRegister(
                       username, email, password, matchingPassword);
-                  if (statusCode == 200) {
-                    AppUtils.displayDialog(
-                        context, "Поздравляем!", "Аккаунт успешно зарегистрирован.");
+                  if (statusCode == HttpStatus.ok) {
+                    AppUtils.displayDialog(context, "Поздравляем!",
+                        "Аккаунт успешно зарегистрирован.");
                     Navigator.popAndPushNamed(context, '/login');
+                  } else if (statusCode == HttpStatus.conflict) {
+                    AppUtils.displayDialog(context, "Ошибка!",
+                        "Аккаунт с такой почтой или логином уже существует.");
                   } else {
-                    AppUtils.displayDialog(
-                        context, "Ошибка регистрации!", "");
+                    AppUtils.displayDialog(context, "Ошибка регистрации!", "");
                   }
                 }
               },
