@@ -1,8 +1,8 @@
-
 import 'package:avid_frontend/res/constants.dart';
 import 'package:avid_frontend/screens/auth/components/auth_utils.dart';
 import 'package:avid_frontend/screens/auth/login/login_screen.dart';
 import 'package:avid_frontend/screens/auth/reg/reg_screen.dart';
+import 'package:avid_frontend/screens/main/app.dart';
 import 'package:avid_frontend/screens/main/profile/profile_screen.dart';
 import 'package:avid_frontend/screens/other/error_screen.dart';
 import 'package:avid_frontend/screens/other/load_screen.dart';
@@ -34,17 +34,18 @@ class MyApp extends StatelessWidget {
           if (snapshot.hasData) {
             switch (snapshot.data) {
               case JwtStatus.CORRECT:
-                return ProfileScreen();
+                return AppScreen();
               case JwtStatus.INCORRECT:
                 return LoginScreen();
               default:
                 return WelcomeScreen();
             }
-          }
-          else if (snapshot.hasError) {
-            return ErrorScreen(title: "Ошибка!", message: "Возможно отсутствует подключение к интернету.",);
-          }
-          else {
+          } else if (snapshot.hasError) {
+            return ErrorScreen(
+              title: "Ошибка!",
+              message: "Возможно отсутствует подключение к интернету.",
+            );
+          } else {
             return LoadScreen();
           }
         },

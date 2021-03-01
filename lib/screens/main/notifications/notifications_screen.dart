@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-class ProfileScreen extends StatelessWidget {
+class NotificationsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Профиль')),
+      appBar: AppBar(title: Text('Уведомления')),
     );
   }
 }
