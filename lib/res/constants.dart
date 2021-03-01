@@ -16,7 +16,7 @@ const kPrimaryColor = const MaterialColor(
   },
 );
 
-const kAccentColor = const MaterialColor(
+const kPrimaryAccentColor = const MaterialColor(
   0xFFFFEB3B,
   const <int, Color>{
     50: const Color(0xFFFFEB3B),

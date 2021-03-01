@@ -60,12 +60,12 @@ class _RoundedPasswordFieldState extends State<RoundedPasswordField> {
             icon,
             color: kPrimaryColor,
           ),
-          suffixIcon: IconButton(
-            icon: Icon(
+          suffixIcon: InkWell(
+            child: Icon(
               _passwordVisible ? Icons.visibility : Icons.visibility_off,
               color: kPrimaryColor,
             ),
-            onPressed: () {
+            onTap: () {
               setState(() {
                 _passwordVisible = !_passwordVisible;
               });

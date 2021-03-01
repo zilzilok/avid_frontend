@@ -64,7 +64,7 @@ class AppScreenState extends State<AppScreen> {
           ],
         ),
         bottomNavigationBar: BottomNavigationBar(
-          selectedItemColor: kAccentColor,
+          selectedItemColor: kPrimaryAccentColor,
           onTap: (int index) {
             _selectTab(pageKeys[index], index);
           },
