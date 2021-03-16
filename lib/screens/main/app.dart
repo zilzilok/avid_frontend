@@ -12,14 +12,12 @@ class AppScreenState extends State<AppScreen> {
   String _currentPage = "Feed";
   List<String> pageKeys = [
     "Feed",
-    "Clubs",
     "Search",
     "Notifications",
     "Profile",
   ];
   Map<String, GlobalKey<NavigatorState>> _navigatorKeys = {
     "Feed": GlobalKey<NavigatorState>(),
-    "Clubs": GlobalKey<NavigatorState>(),
     "Search": GlobalKey<NavigatorState>(),
     "Notifications": GlobalKey<NavigatorState>(),
     "Profile": GlobalKey<NavigatorState>(),
@@ -57,41 +55,49 @@ class AppScreenState extends State<AppScreen> {
         body: Stack(
           children: <Widget>[
             _buildOffstageNavigator("Feed"),
-            _buildOffstageNavigator("Clubs"),
             _buildOffstageNavigator("Search"),
             _buildOffstageNavigator("Notifications"),
             _buildOffstageNavigator("Profile"),
           ],
         ),
-        bottomNavigationBar: BottomNavigationBar(
-          selectedItemColor: kPrimaryAccentColor,
-          onTap: (int index) {
-            _selectTab(pageKeys[index], index);
-          },
-          currentIndex: _selectedIndex,
-          items: [
-            BottomNavigationBarItem(
-              icon: new Icon(Icons.looks_one),
-              label: "Новости",
-            ),
-            BottomNavigationBarItem(
-              icon: new Icon(Icons.looks_two),
-              label: "Клубы",
-            ),
-            BottomNavigationBarItem(
-              icon: new Icon(Icons.looks_3),
-              label: "Поиск",
-            ),
-            BottomNavigationBarItem(
-              icon: new Icon(Icons.looks_4),
-              label: "Уведомления",
-            ),
-            BottomNavigationBarItem(
-              icon: new Icon(Icons.looks_5),
-              label: "Профиль",
-            ),
-          ],
-          type: BottomNavigationBarType.fixed,
+        bottomNavigationBar: Container(
+          decoration: BoxDecoration(
+            color: kWhiteColor,
+            border: Border(top: BorderSide(color: kPrimaryColor, width: 2)),
+          ),
+          child: BottomNavigationBar(
+            selectedItemColor: kPrimaryAccentColor,
+            unselectedItemColor: kPrimaryColor,
+            onTap: (int index) {
+              _selectTab(pageKeys[index], index);
+            },
+            showSelectedLabels: false,
+            showUnselectedLabels: false,
+            currentIndex: _selectedIndex,
+            items: [
+              BottomNavigationBarItem(
+                icon: new Icon(Icons.home_outlined),
+                activeIcon: new Icon(Icons.home),
+                label: "Новости",
+              ),
+              BottomNavigationBarItem(
+                icon: new Icon(Icons.search_outlined),
+                activeIcon: new Icon(Icons.search),
+                label: "Поиск",
+              ),
+              BottomNavigationBarItem(
+                icon: new Icon(Icons.notifications_active_outlined),
+                activeIcon: new Icon(Icons.notifications_active),
+                label: "Уведомления",
+              ),
+              BottomNavigationBarItem(
+                icon: new Icon(Icons.person_outline),
+                activeIcon: new Icon(Icons.person),
+                label: "Профиль",
+              ),
+            ],
+            type: BottomNavigationBarType.fixed,
+          ),
         ),
       ),
     );

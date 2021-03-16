@@ -23,7 +23,7 @@ class ImageButton extends StatelessWidget {
         aspectRatio: 1,
         child: ClipOval(
           child: Material(
-            color: kPrimaryLightColor,
+            color: kPrimaryColor,
             child: InkWell(
               splashColor: kPrimaryAccentColor,
               onTap: onPressed,

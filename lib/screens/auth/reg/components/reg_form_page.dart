@@ -3,8 +3,8 @@ import 'dart:io';
 import 'package:avid_frontend/components/app_utils.dart';
 import 'package:avid_frontend/components/rounded_button.dart';
 import 'package:avid_frontend/screens/auth/api/auth_api.dart';
-import 'package:avid_frontend/screens/auth/components/rounded_input_field.dart';
-import 'package:avid_frontend/screens/auth/components/rounded_password_field.dart';
+import 'package:avid_frontend/screens/auth/components/input_field.dart';
+import 'package:avid_frontend/screens/auth/components/password_field.dart';
 import 'package:avid_frontend/screens/auth/components/validator.dart';
 import 'package:flutter/material.dart';
 
@@ -31,41 +31,43 @@ class _RegFormPage extends State<RegFormPage> {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return Container(
       child: Form(
         key: _formkey,
         child: Column(
           children: [
-            RoundedInputField(
-              hintText: "Введите логин",
+            InputField(
+              hintText: "логин",
               controller: _loginController,
               validator: Validator.login(),
             ),
-            RoundedInputField(
-              hintText: "Введите email",
+            InputField(
+              hintText: "почта",
               controller: _emailController,
               validator: Validator.email(),
             ),
-            RoundedPasswordField(
-              hintText: "Введите пароль",
+            PasswordField(
+              hintText: "придумайте пароль",
               controller: _passwordController,
               validator: Validator.passwordNotEmpty(),
             ),
-            RoundedPasswordField(
-              hintText: "Повторите пароль",
+            PasswordField(
+              hintText: "повторите пароль",
               controller: _mPasswordController,
               validator: (String matchingPassword) {
                 if (matchingPassword.isEmpty) {
-                  return "Пароль не может быть пустым";
+                  return "пароль не может быть пустым";
                 }
                 if (_passwordController.text != matchingPassword) {
-                  return "Пароли не совпадают";
+                  return "пароли не совпадают";
                 }
                 return null;
               },
             ),
+            SizedBox(height: size.height * 0.03),
             RoundedButton(
-              text: "Продолжить",
+              text: "продолжить",
               onPressed: () async {
                 if (_formkey.currentState.validate()) {
                   var username = _loginController.text;

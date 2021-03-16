@@ -1,37 +1,55 @@
 import 'package:flutter/material.dart';
 
 const kPrimaryColor = const MaterialColor(
-  0xFFFFEB3B,
+  0xFFFE8F00,
   const <int, Color>{
-    50: const Color(0xFFFFEB3B),
-    100: const Color(0xFFFFEB3B),
-    200: const Color(0xFFFFEB3B),
-    300: const Color(0xFFFFEB3B),
-    400: const Color(0xFFFFEB3B),
-    500: const Color(0xFFFFEB3B),
-    600: const Color(0xFFFFEB3B),
-    700: const Color(0xFFFFEB3B),
-    800: const Color(0xFFFFEB3B),
-    900: const Color(0xFFFFEB3B),
+    50: const Color(0xFFFE8F00),
+    100: const Color(0xFFFE8F00),
+    200: const Color(0xFFFE8F00),
+    300: const Color(0xFFFE8F00),
+    400: const Color(0xFFFE8F00),
+    500: const Color(0xFFFE8F00),
+    600: const Color(0xFFFE8F00),
+    700: const Color(0xFFFE8F00),
+    800: const Color(0xFFFE8F00),
+    900: const Color(0xFFFE8F00),
   },
 );
 
 const kPrimaryAccentColor = const MaterialColor(
-  0xFFFFEB3B,
+  0xFFFE5B00,
   const <int, Color>{
-    50: const Color(0xFFFFEB3B),
-    100: const Color(0xFFFFEB3B),
-    200: const Color(0xFFFFEB3B),
-    300: const Color(0xFFFFEB3B),
-    400: const Color(0xFFFFEB3B),
-    500: const Color(0xFFFFEB3B),
-    600: const Color(0xFFFFEB3B),
-    700: const Color(0xFFFFEB3B),
-    800: const Color(0xFFFFEB3B),
-    900: const Color(0xFFFFEB3B),
+    50: const Color(0xFFFE5B00),
+    100: const Color(0xFFFE5B00),
+    200: const Color(0xFFFE5B00),
+    300: const Color(0xFFFE5B00),
+    400: const Color(0xFFFE5B00),
+    500: const Color(0xFFFE5B00),
+    600: const Color(0xFFFE5B00),
+    700: const Color(0xFFFE5B00),
+    800: const Color(0xFFFE5B00),
+    900: const Color(0xFFFE5B00),
   },
 );
 
-const kPrimaryLightColor = Color(0xFFFFF495);
+const kPrimaryLightColor = Color(0xFFFEA300);
 
 const kBackgroundColor = Colors.white;
+
+const kWhiteColor = Color(0xFFFFFCF9);
+
+const kMaterialWhiteColor = const MaterialColor(
+  0xFFFFFCF9,
+  const <int, Color>{
+    50: const Color(0xFFFFFCF9),
+    100: const Color(0xFFFFFCF9),
+    200: const Color(0xFFFFFCF9),
+    300: const Color(0xFFFFFCF9),
+    400: const Color(0xFFFFFCF9),
+    500: const Color(0xFFFFFCF9),
+    600: const Color(0xFFFFFCF9),
+    700: const Color(0xFFFFFCF9),
+    800: const Color(0xFFFFFCF9),
+    900: const Color(0xFFFFFCF9),
+  },
+);

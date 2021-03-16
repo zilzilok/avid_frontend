@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="ru.zilzilok.avid_frontend">
    <application
-        android:label="avid_frontend"
+        android:label="AviD"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"

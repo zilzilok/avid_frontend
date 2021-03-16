@@ -3,8 +3,8 @@ import 'package:avid_frontend/components/app_utils.dart';
 import 'package:avid_frontend/components/rounded_button.dart';
 import 'package:avid_frontend/screens/auth/api/auth_api.dart';
 import 'package:avid_frontend/screens/auth/components/auth_utils.dart';
-import 'package:avid_frontend/screens/auth/components/rounded_input_field.dart';
-import 'package:avid_frontend/screens/auth/components/rounded_password_field.dart';
+import 'package:avid_frontend/screens/auth/components/input_field.dart';
+import 'package:avid_frontend/screens/auth/components/password_field.dart';
 import 'package:avid_frontend/screens/auth/components/validator.dart';
 import 'package:flutter/material.dart';
 
@@ -27,23 +27,25 @@ class _LoginFormPageState extends State<LoginFormPage> {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return Container(
       child: Form(
         key: _formkey,
         child: Column(
           children: [
-            RoundedInputField(
-              hintText: "Введите логин",
+            InputField(
+              hintText: "логин",
               controller: _loginController,
               validator: Validator.login(),
             ),
-            RoundedPasswordField(
-              hintText: "Введите пароль",
+            PasswordField(
+              hintText: "пароль",
               controller: _passwordController,
               validator: Validator.passwordNotEmpty(),
             ),
+            SizedBox(height: size.height * 0.03),
             RoundedButton(
-              text: "Войти",
+              text: "войти",
               onPressed: () async {
                 if (_formkey.currentState.validate()) {
                   var username = _loginController.text;

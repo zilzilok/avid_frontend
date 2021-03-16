@@ -1,4 +1,3 @@
-import 'package:avid_frontend/screens/main/clubs/clubs_screen.dart';
 import 'package:avid_frontend/screens/main/feed/feed_screen.dart';
 import 'package:avid_frontend/screens/main/notifications/notifications_screen.dart';
 import 'package:avid_frontend/screens/main/profile/profile_screen.dart';
@@ -22,9 +21,6 @@ class TabNavigator extends StatelessWidget {
     switch (tabItem) {
       case "Feed":
         child = FeedScreen();
-        break;
-      case "Clubs":
-        child = ClubsScreen();
         break;
       case "Search":
         child = SearchScreen();

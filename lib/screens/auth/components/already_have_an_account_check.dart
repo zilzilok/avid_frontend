@@ -1,9 +1,11 @@
 import 'package:avid_frontend/res/constants.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class AlreadyHaveAnAccountCheck extends StatelessWidget {
   final bool login;
   final Function onPressed;
+
   const AlreadyHaveAnAccountCheck({
     Key key,
     this.login = true,
@@ -17,15 +19,17 @@ class AlreadyHaveAnAccountCheck extends StatelessWidget {
       children: <Widget>[
         Text(
           login ? "Нет аккаунта? " : "Уже есть аккаунт? ",
-          style: TextStyle(color: kPrimaryColor),
+          style:
+              GoogleFonts.montserrat(color: kPrimaryColor, fontSize: 15),
         ),
         GestureDetector(
           onTap: onPressed,
           child: Text(
             login ? "Зарегистрируйтесь" : "Войдите",
-            style: TextStyle(
+            style: GoogleFonts.montserrat(
               color: kPrimaryColor,
               fontWeight: FontWeight.bold,
+              fontSize: 15,
             ),
           ),
         )

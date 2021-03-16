@@ -5,9 +5,10 @@ import 'package:avid_frontend/screens/auth/reg/reg_screen.dart';
 import 'package:avid_frontend/screens/main/app.dart';
 import 'package:avid_frontend/screens/main/profile/profile_screen.dart';
 import 'package:avid_frontend/screens/other/error_screen.dart';
-import 'package:avid_frontend/screens/other/load_screen.dart';
+import 'package:avid_frontend/screens/other/load/load_screen.dart';
 import 'package:avid_frontend/screens/welcome/welcome_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 void main() {
   runApp(MyApp());
@@ -16,12 +17,15 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+    ]);
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         accentColor: kPrimaryAccentColor,
         primarySwatch: kPrimaryColor,
-        scaffoldBackgroundColor: kBackgroundColor,
+        scaffoldBackgroundColor: kWhiteColor,
       ),
       routes: <String, WidgetBuilder>{
         '/login': (BuildContext context) => LoginScreen(),

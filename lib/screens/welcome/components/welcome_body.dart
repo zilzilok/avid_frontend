@@ -10,27 +10,29 @@ class WelcomeBody extends StatelessWidget {
     return WelcomeBackground(
       child: SingleChildScrollView(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.end,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisSize: MainAxisSize.max,
           children: <Widget>[
-            Image.asset(
-              "assets/images/default_image.png",
-              width: size.width * 0.3,
-            ),
-            SizedBox(height: size.height * 0.05),
             RoundedButton(
-              text: "Авторизоваться",
+              text: "войти в аккаунт",
+              bgColor: kWhiteColor,
+              textColor: kPrimaryColor,
               onPressed: () {
                 Navigator.pushNamed(context, '/login');
               },
             ),
+            SizedBox(height: size.height * 0.03),
             RoundedButton(
-              text: "Зарегистрироваться",
-              bgColor: kPrimaryLightColor,
-              textColor: Colors.black,
+              text: "зарегистрироваться",
+              bgColor: kPrimaryColor,
+              borderColor: kWhiteColor,
+              textColor: kWhiteColor,
               onPressed: () {
                 Navigator.pushNamed(context, '/register');
               },
             ),
+            SizedBox(height: size.height * 0.1),
           ],
         ),
       ),

@@ -4,7 +4,7 @@ class Validator {
       RegExp regex =
           RegExp(r'^[a-zA-Z0-9]([._-](?![._-])|[a-zA-Z0-9]){3,18}[a-zA-Z0-9]$');
       if (!regex.hasMatch(login)) {
-        return "Введен недопустимый логин";
+        return "введен недопустимый логин";
       }
       return null;
     };
@@ -13,7 +13,7 @@ class Validator {
   static passwordNotEmpty() {
     return (String password) {
       if (password.isEmpty) {
-        return "Пароль не может быть пустым";
+        return "пароль не может быть пустым";
       }
       return null;
     };
@@ -28,7 +28,7 @@ class Validator {
         multiLine: true,
       );
       if (!regex.hasMatch(email)) {
-        return "Введен недопустимый email";
+        return "введен недопустимый email";
       }
       return null;
     };

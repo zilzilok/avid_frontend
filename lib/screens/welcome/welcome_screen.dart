@@ -5,8 +5,12 @@ class WelcomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Главная страница')),
-      body: WelcomeBody(),
+      body: new GestureDetector(
+        onTap: () {
+          FocusScope.of(context).requestFocus(new FocusNode());
+        },
+        child: WelcomeBody(),
+      ),
     );
   }
 }

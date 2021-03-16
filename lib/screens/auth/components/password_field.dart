@@ -1,42 +1,36 @@
 import 'package:avid_frontend/components/text_field_container.dart';
 import 'package:avid_frontend/res/constants.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
-class RoundedPasswordField extends StatefulWidget {
+class PasswordField extends StatefulWidget {
   final String hintText;
   final String errorText;
-  final IconData icon;
   final TextEditingController controller;
   final Function validator;
 
-  const RoundedPasswordField({
+  const PasswordField({
     Key key,
     this.controller,
     this.validator,
     this.hintText = "Пароль",
     this.errorText = "Пароль должен содержать минимум 8 символов",
-    this.icon = Icons.lock,
   }) : super(key: key);
 
   @override
-  _RoundedPasswordFieldState createState() => _RoundedPasswordFieldState(
-      this.hintText,
-      this.errorText,
-      this.icon,
-      this.controller,
-      this.validator);
+  _PasswordFieldState createState() => _PasswordFieldState(
+      this.hintText, this.errorText, this.controller, this.validator);
 }
 
-class _RoundedPasswordFieldState extends State<RoundedPasswordField> {
+class _PasswordFieldState extends State<PasswordField> {
   final String hintText;
   final String errorText;
-  final IconData icon;
   final controller;
   final validator;
   bool _passwordVisible;
 
-  _RoundedPasswordFieldState(this.hintText, this.errorText, this.icon,
-      this.controller, this.validator);
+  _PasswordFieldState(
+      this.hintText, this.errorText, this.controller, this.validator);
 
   @override
   void initState() {
@@ -51,15 +45,21 @@ class _RoundedPasswordFieldState extends State<RoundedPasswordField> {
         keyboardType: TextInputType.text,
         obscureText: !_passwordVisible,
         enableSuggestions: false,
-        cursorColor: kPrimaryColor,
+        // cursorColor: kPrimaryColor,
         controller: controller,
         validator: validator,
+        style: GoogleFonts.montserrat(fontSize: 16),
         decoration: InputDecoration(
+          enabledBorder: UnderlineInputBorder(
+              borderSide: BorderSide(width: 1, color: kPrimaryLightColor)),
+          focusedBorder: UnderlineInputBorder(
+              borderSide: BorderSide(width: 1, color: kPrimaryColor)),
+          errorBorder: UnderlineInputBorder(
+              borderSide: BorderSide(width: 1, color: kPrimaryColor)),
+          focusedErrorBorder: UnderlineInputBorder(
+              borderSide: BorderSide(width: 1, color: kPrimaryAccentColor)),
+          errorStyle: GoogleFonts.montserrat(fontSize: 14),
           hintText: hintText,
-          icon: Icon(
-            icon,
-            color: kPrimaryColor,
-          ),
           suffixIcon: InkWell(
             child: Icon(
               _passwordVisible ? Icons.visibility : Icons.visibility_off,
@@ -71,7 +71,6 @@ class _RoundedPasswordFieldState extends State<RoundedPasswordField> {
               });
             },
           ),
-          border: InputBorder.none,
         ),
       ),
     );
